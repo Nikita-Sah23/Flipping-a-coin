@@ -3,12 +3,11 @@ echo "flipping coin 50 times"
 counter_head=0
 counter_tails=0
 declare -A MyCoinArray
-
 for (( i=1; i<=50; i++ ))
 do 
  flip=$((RANDOM%2))
 
- if [ $flip -eq 0 ] 
+ if [ $flip -eq 0 ]
  then
   echo "Heads"
   let counter_head=$counter_head+1
@@ -17,12 +16,15 @@ do
  else
   echo "Tails"
   let counter_tails=$counter_tails+1
-  MyCoinArray[tails]=$counter_head
+  MyCoinArray[tails]=$counter_tails
  fi
 done
 
-echo "head won" ${MyCoinArray{${heads}}
-echo "tails won" ${MyCoinArray{${tails}}
+echo "head won" ${MyCoinArray[heads]}
+echo "tails won" ${MyCoinArray[tails]}
+
+
+
 
 
 
